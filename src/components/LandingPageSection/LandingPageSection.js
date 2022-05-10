@@ -43,7 +43,12 @@ function LandingPageSection({
                 >
                   {description}
                 </p>
-                <Link to="/sign-up">
+                <Link
+                  to={
+                    "//apps.apple.com/ca/app/saylo-video-messenger/id1603124967"
+                  }
+                  target="_blank"
+                >
                   <Button
                     buttonSize="btn--wide"
                     buttonColor={lightBg ? "white" : "blue"}

@@ -50,19 +50,22 @@ function Navbar() {
 
             <ul className={click ? "nav-menu active" : "nav-menu"}>
               <li className="nav-item">
-                <Link
-                  to="/download"
-                  className="nav-links"
-                  onClick={closeMobileMenu}
-                >
+                <Link to="/" className="nav-links" onClick={closeMobileMenu}>
                   Home
                 </Link>
               </li>
               <li className="nav-item">
                 <Link
-                  to="/contactUs"
+                  //   to="/contactUs"
                   className="nav-links"
-                  onClick={closeMobileMenu}
+                  to="#"
+                  onClick={(e) => {
+                    closeMobileMenu();
+
+                    window.location.href = "mailto:seb@saylo.chat";
+
+                    e.preventDefault();
+                  }}
                 >
                   Contact Us
                 </Link>
@@ -70,13 +73,22 @@ function Navbar() {
 
               <li className="nav-btn">
                 {button ? (
-                  <Link to="/sign-up" className="btn-link">
+                  <Link
+                    to={
+                      "//apps.apple.com/ca/app/saylo-video-messenger/id1603124967"
+                    }
+                    target="_blank"
+                    className="btn-link"
+                  >
                     <Button buttonStyle="btn--outline">Download</Button>
                   </Link>
                 ) : (
                   <Link
                     onClick={closeMobileMenu}
-                    to="/sign-up"
+                    target="_blank"
+                    to={
+                      "//apps.apple.com/ca/app/saylo-video-messenger/id1603124967"
+                    }
                     className="btn-link"
                   >
                     <Button
