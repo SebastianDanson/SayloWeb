@@ -1,0 +1,143 @@
+rules_version = '2';
+service cloud.firestore {
+
+  match /databases/{database}/documents {
+	    
+    //Users Collection 
+    match /users/{user_id} {
+    	
+      //Users read conditions
+    	allow read: 
+    	if request.auth != null
+      
+      //Users create conditions
+   	 	allow create: 
+      if request.auth.uid == user_id;
+      
+      //Users update conditions
+      allow update: 
+      if request.auth != null
+      
+      && 
+      
+      (((request.resource.data.diff(resource.data).affectedKeys().hasOnly(['friendRequests', 'hasUnseenFriendRequest'])
+      ||request.resource.data.diff(resource.data).affectedKeys().hasOnly(['friendRequests']))
+      && arrayCountChangedByOne(resource.data.friendRequests, request.resource.data.friendRequests))
+  
+      
+      || 
+      (request.auth.uid == user_id 
+      && (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['friendRequests', 'friends', 'conversations'])
+      || request.resource.data.diff(resource.data).affectedKeys().hasOnly(['username', 'searchKeywords']) 
+      || request.resource.data.diff(resource.data).affectedKeys().hasOnly(['profileImage', 'hasCompletedSignUp'])
+      || request.resource.data.diff(resource.data).affectedKeys().hasOnly(['hasUnseenFriendRequest'])
+      || request.resource.data.diff(resource.data).affectedKeys().hasOnly(['pushKitToken'])
+      || request.resource.data.diff(resource.data).affectedKeys().hasOnly(['phoneNumber', 'countryCode']) 
+      || request.resource.data.diff(resource.data).affectedKeys().hasOnly(['fcmToken'])
+      || request.resource.data.diff(resource.data).affectedKeys().hasOnly(['firstName', 'lastName', 'searchKeywords'])))
+
+			||
+      (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['friends', 'conversations']) 
+      || (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['conversations']) 
+      && arrayCountChangedByOne(resource.data.conversations, request.resource.data.conversations))
+      
+      || request.resource.data.diff(resource.data).affectedKeys().hasOnly(['friends']) 
+      && arrayCountChangedByOne(resource.data.friends, request.resource.data.friends))
+      
+      );
+      
+      //Users delete conditions
+    	allow delete: 
+      if false
+      
+		}
+    
+    //Conversations Collection 
+    //TODO make it so the user actually has to be apart of the conversation to read and update it
+    match /conversations/{conversation_id} {
+    
+     	//Conversations read conditions
+    	allow read: 
+    	if request.auth != null
+      
+      //Conversations create conditions
+    	allow create: 
+    	if request.auth != null
+      
+      //Conversations update conditions
+      allow update: 
+      if request.auth != null
+         &&
+         (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['name'])
+          || request.resource.data.diff(resource.data).affectedKeys().hasOnly(['profileImage']) 
+          || request.resource.data.diff(resource.data).affectedKeys().hasOnly(['messages', 'users']) 
+          || request.resource.data.diff(resource.data).affectedKeys().hasOnly(['seenLastPost']) 
+          || (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['mutedUsers']) 
+          && arrayCountChangedByOne(resource.data.mutedUsers, request.resource.data.mutedUsers))
+          || request.resource.data.diff(resource.data).affectedKeys().hasOnly(['messages', 'reactions', 'savedMessages']) 
+          || ((request.resource.data.diff(resource.data).affectedKeys().hasOnly(['messages'])
+          ||request.resource.data.diff(resource.data).affectedKeys().hasOnly(['messages', 'seenLastPost']))
+          && arrayCountChangedByOne(resource.data.messages, request.resource.data.messages)) 
+          || (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['users'] )
+          && ((request.resource.data.users.size() == resource.data.users.size()) 
+          || arrayCountChangedByOne(resource.data.users, request.resource.data.users))) 
+      || (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['savedMessages'])
+          && arrayCountChangedByOne(resource.data.savedMessages, request.resource.data.savedMessages))) 
+
+			//Conversations delete conditions
+    	allow delete: 
+      if false
+      
+    }
+    
+    //Saved Messages Collection 
+    //TODO make it so the user actually has to be apart of the conversation to read and update it
+    match /savedMessages/{savedMessages_id} {
+    
+     	//Saved Messages read conditions
+    	allow read: 
+    	if request.auth != null
+      
+      //Saved Messages create conditions
+    	allow create: 
+    	if request.auth != null
+      
+      //Saved Messages update conditions
+      allow update: 
+      if request.auth != null
+      && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['messages'])
+      && arrayCountChangedByOne(resource.data.messages, request.resource.data.messages)
+    
+			//Saved Messages delete conditions
+    	allow delete: 
+      if false
+      
+    }
+    
+    //Contact Us Collection 
+    match /contactUs/{contactUs_id} {
+    
+     	//Contact Us read conditions
+    	allow read: 
+    	if false
+      
+      //Contact Us create conditions
+    	allow create: 
+    	if request.auth != null
+      
+      //Contact Us update conditions
+      allow update: 
+      if false
+      
+			//Contact Us delete conditions
+    	allow delete: 
+      if false
+      
+    }
+    
+    function arrayCountChangedByOne(currentArray, newArray) {
+    	return currentArray.size() == newArray.size() + 1 || currentArray.size() == newArray.size() - 1 
+      || (newArray.size() == 1) ;
+		}
+  }
+}
