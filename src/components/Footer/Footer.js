@@ -3,13 +3,7 @@ import "./Footer.css";
 // import { Button } from "../Button";
 import { MailButton } from "../MailButton";
 import { Link } from "react-router-dom";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaYoutube,
-  FaTwitter,
-  FaLinkedin,
-} from "react-icons/fa";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 function Footer() {
   return (
