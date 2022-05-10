@@ -1,6 +1,7 @@
 import React from "react";
 import "./Footer.css";
-import { Button } from "../Button";
+// import { Button } from "../Button";
+import { MailButton } from "../MailButton";
 import { Link } from "react-router-dom";
 import {
   FaFacebook,
@@ -9,12 +10,11 @@ import {
   FaTwitter,
   FaLinkedin,
 } from "react-icons/fa";
-import { MdFingerprint } from "react-icons/md";
 
 function Footer() {
   return (
     <div className="footer-container">
-      <section className="footer-subscription">
+      {/* <section className="footer-subscription">
         <p className="footer-subscription-heading">
           Join our exclusive membership to receive the latest news and trends
         </p>
@@ -32,55 +32,58 @@ function Footer() {
             <Button buttonStyle="btn--outline">Subscribe</Button>
           </form>
         </div>
-      </section>
-      <div className="footer-links">
+      </section> */}
+      {/* <div className="footer-links">
         <div className="footer-link-wrapper">
           <div className="footer-link-items">
-            <h2>About Us</h2>
-            <Link to="/sign-up">How it works</Link>
+            <h2>Contact Us</h2> */}
+      {/* <Link to="/sign-up">How it works</Link>
             <Link to="/">Testimonials</Link>
             <Link to="/">Careers</Link>
             <Link to="/">Investors</Link>
-            <Link to="/">Terms of Service</Link>
-          </div>
+            <Link to="/">Terms of Service</Link> */}
+      {/* </div>
           <div className="footer-link-items">
-            <h2>Contact Us</h2>
-            <Link to="/">Contact</Link>
+            <h2>Terms</h2> */}
+      {/* <Link to="/">Contact</Link>
             <Link to="/">Support</Link>
             <Link to="/">Destinations</Link>
-            <Link to="/">Sponsorships</Link>
-          </div>
+            <Link to="/">Sponsorships</Link> */}
+      {/* </div>
         </div>
         <div className="footer-link-wrapper">
           <div className="footer-link-items">
-            <h2>Videos</h2>
-            <Link to="/">Submit Video</Link>
+            <h2>Privacy</h2> */}
+      {/* <Link to="/">Submit Video</Link>
             <Link to="/">Ambassadors</Link>
             <Link to="/">Agency</Link>
-            <Link to="/">Influencer</Link>
-          </div>
-          <div className="footer-link-items">
+            <Link to="/">Influencer</Link> */}
+      {/* </div> */}
+      {/* <div className="footer-link-items">
             <h2>Social Media</h2>
             <Link to="/">Instagram</Link>
             <Link to="/">Facebook</Link>
             <Link to="/">Youtube</Link>
             <Link to="/">Twitter</Link>
-          </div>
-        </div>
-      </div>
+          </div> */}
+      {/* </div> */}
+      {/* </div> */}
       <section className="social-media">
         <div className="social-media-wrap">
           <div className="footer-logo">
-            <Link to="/" className="social-logo">
-              <MdFingerprint className="navbar-icon" />
-              LAVISH
-            </Link>
+            <MailButton
+              className="footer-link"
+              label="Contact Us"
+              mailto="mailto:seb@saylo.chat"
+            />
+
+            {/* <MailButton className="footer-link" /> */}
           </div>
-          <small className="website-rights">LAVISH © 2020</small>
+          <small className="website-rights">Saylo © 2022</small>
           <div className="social-icons">
             <Link
               className="social-icon-link"
-              to="/"
+              to={"//www.facebook.com/SayloApp"}
               target="_blank"
               aria-label="Facebook"
             >
@@ -88,13 +91,13 @@ function Footer() {
             </Link>
             <Link
               className="social-icon-link"
-              to="/"
+              to={"//www.instagram.com/saylo.app/"}
               target="_blank"
               aria-label="Instagram"
             >
               <FaInstagram />
             </Link>
-            <Link
+            {/* <Link
               className="social-icon-link"
               to={
                 "//www.youtube.com/channel/UCsKsymTY_4BYR-wytLjex7A?view_as=subscriber"
@@ -103,23 +106,23 @@ function Footer() {
               aria-label="Youtube"
             >
               <FaYoutube />
-            </Link>
-            <Link
+            </Link> */}
+            {/* <Link
               className="social-icon-link"
               to="/"
               target="_blank"
               aria-label="Twitter"
             >
               <FaTwitter />
-            </Link>
-            <Link
+            </Link> */}
+            {/* <Link
               className="social-icon-link"
               to="/"
               target="_blank"
               aria-label="LinkedIn"
             >
               <FaLinkedin />
-            </Link>
+            </Link> */}
           </div>
         </div>
       </section>

@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 function LandingPageSection({
   lightBg,
-  topLine,
   lightText,
   lightTextDesc,
   headline,
@@ -32,7 +31,6 @@ function LandingPageSection({
           >
             <div className="col">
               <div className="home__landing-text-wrapper">
-                {/* <div className="top-line">{topLine}</div> */}
                 <h1 className={lightText ? "heading" : "heading dark"}>
                   {headline}
                 </h1>
@@ -46,7 +44,10 @@ function LandingPageSection({
                   {description}
                 </p>
                 <Link to="/sign-up">
-                  <Button buttonSize="btn--wide" buttonColor="blue">
+                  <Button
+                    buttonSize="btn--wide"
+                    buttonColor={lightBg ? "white" : "blue"}
+                  >
                     {buttonLabel}
                   </Button>
                 </Link>

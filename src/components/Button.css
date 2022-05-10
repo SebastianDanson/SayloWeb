@@ -85,6 +85,13 @@
     border-radius: 50px;
   }
   
+  .white {
+    background-color: var(--mainBlue) ;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+  }
+
   .red {
     background-color: #2980b9;
     color: #fff;

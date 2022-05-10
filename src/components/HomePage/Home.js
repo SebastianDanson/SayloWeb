@@ -6,8 +6,8 @@ function Home() {
   return (
     <>
       <LandingPageSection {...homeObjOne} />
-      <LandingPageSection {...homeObjThree} />
       <LandingPageSection {...homeObjTwo} />
+      <LandingPageSection {...homeObjThree} />
       <LandingPageSection {...homeObjFour} />
     </>
   );

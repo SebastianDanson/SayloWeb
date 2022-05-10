@@ -4,51 +4,50 @@ export const homeObjOne = {
   lightTextDesc: true,
   headline: "Stay in touch with those who matter",
   description:
-    "Talking is better than texting! \nVideo messages are a much more engaging and meaningful way to connect than texts.",
+    "Saylo keeps you connected to your favourite people through video messages.",
   buttonLabel: "Download",
   imgStart: "",
   img: "images/AppScreenShots1.png",
   alt: "App Screen Shots",
 };
 
-export const homeObjTwo = {
-  lightBg: false,
-  lightText: true,
-  lightTextDesc: true,
-  topLine: "100% SECURE",
-  headline: "Stay protected 24/7 anywhere anytime",
-  description:
-    "We have you covered no matter where you are located. Over 140 locations worldwide to ensure you have access anytime",
-  buttonLabel: "Learn More",
-  imgStart: "",
-  img: "images/svg-5.svg",
-  alt: "Vault",
-};
+// "Talking is better than texting! \nVideo messages are a much more engaging and meaningful way to connect than texts.",
 
-export const homeObjThree = {
+export const homeObjTwo = {
   lightBg: true,
   lightText: false,
   lightTextDesc: false,
-  topLine: "EASY SETUP",
-  headline: "Super fast and simple onboarding process",
+  headline: "Talking is better than texting",
   description:
-    "Get everything set up and ready in under 10 minutes. All you need to do is add your information and you're ready to go.",
-  buttonLabel: "Start Now",
+    "Video messages are a much more engaging and meaningful way to connect than texts.",
+  buttonLabel: "Download",
   imgStart: "start",
-  img: "images/svg-7.svg",
-  alt: "Vault",
+  img: "images/AppScreenShots2.png",
+  alt: "App Screen Shots",
+};
+
+export const homeObjThree = {
+  lightBg: false,
+  lightText: true,
+  lightTextDesc: true,
+  headline: "Watch and reply when you have time",
+  description:
+    "Saylo allows you to talk when you have time. Have face to face converstions without needing to schedule a time to call.",
+  buttonLabel: "Download",
+  imgStart: "",
+  img: "images/AppScreenShots3.png",
+  alt: "App Screen Shots",
 };
 
 export const homeObjFour = {
   lightBg: true,
   lightText: false,
   lightTextDesc: false,
-  topLine: "EASY SETUP",
-  headline: "Super fast and simple onboarding process",
+  headline: "Make calls and send texts ",
   description:
-    "Get everything set up and ready in under 10 minutes. All you need to do is add your information and you're ready to go.",
-  buttonLabel: "Start Now",
+    "For the times you can't talk you can send a text. And when you want to talk live, Saylo lets you make video calls.",
+  buttonLabel: "Download",
   imgStart: "start",
-  img: "images/svg-7.svg",
-  alt: "Vault",
+  img: "images/AppScreenShots4.png",
+  alt: "App Screen Shots",
 };
