@@ -4,7 +4,7 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "public": "sayloweb",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",
